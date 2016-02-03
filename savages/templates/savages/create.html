@@ -1,0 +1,38 @@
+{% extends "savages/base.html" %}
+{% block content %}
+
+<div>
+	<!-- Title -->
+	<h2>Create</h2>
+
+	<!-- Create -->
+	<h2>Create</h2>
+	<ol>
+		<form method="post">
+			{% csrf_token %}
+			<input type="text" name="points" value=0.0>
+			<input type="text" name="description" value="Description">
+			<input type="submit" name="submit" value="Add">
+			<input type="hidden" name="achievementId" value={{x.id}}>
+			<input type="hidden" name="actionType" value="ADD">
+		</form>
+	</ol>
+
+	<!-- Remove -->
+	<h2>Remove</h2>
+	<ol>
+		{% for x in achievements %}
+			<form method="post">
+				{% csrf_token %}
+				<li>
+					{{ x.points }} - {{ x.description }}
+					<input type="submit" name="submit" value="Remove">
+					<input type="hidden" name="achievementId" value={{x.id}}>
+					<input type="hidden" name="actionType" value="REMOVE">
+				</li>
+			</form>
+		{% endfor %}
+	</ol>  
+</div>
+
+{% endblock content %}

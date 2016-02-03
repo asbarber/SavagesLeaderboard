@@ -15,6 +15,13 @@ def contains(list, filter):
 			return True
 	return False
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
 
 # SESSIONS
 # ###############################################
@@ -40,7 +47,12 @@ def get_user(username):
 	return User.objects.filter(username=username)[0]
 
 def get_users():
-	return User.objects.order_by('-username')
+	return User.objects.order_by('username')
+
+def get_ranked_users():
+	users = list(get_users())
+	users.sort(key=lambda x: x.calculatePoints, reverse=True)
+	return users
 
 def user_exists(username, password):
 	return User.objects.filter(username=username, password=encrypt(password)).exists()
@@ -66,8 +78,15 @@ def achievement_exists(achievementId):
 def get_achievement(achievementId):
 	return Achievement.objects.filter(id=achievementId)
 
-def get_all_achievements():
-	return Achievement.objects.all()
+def get_achievements():
+	return Achievement.objects.all().order_by('-points')
+
+def save_achievement(points, description):
+	Achievement(points=points, description=description).save()
+
+def remove_achievement(achievementId):
+	UserAchieved.objects.filter(achievementId=achievementId).delete()
+	Achievement.objects.filter(id=achievementId).delete()
 
 
 # USER ACHIEVED
@@ -81,7 +100,7 @@ def link_exists(user, achievementId):
 def get_user_unachieved(user):
 	unachievement_list = []
 	user_list = get_user_achieved(user)
-	all_list = get_all_achievements()
+	all_list = get_achievements()
 	return [a for a in all_list if not contains(user_list, lambda link: link.id == a.id)]
 
 def get_user_achieved(user):

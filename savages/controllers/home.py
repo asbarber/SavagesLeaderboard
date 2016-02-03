@@ -5,7 +5,7 @@ from ..models import *
 from api import *
 
 def home(request):
-	context = {'user_list': get_users()}
+	context = {'user_list': get_ranked_users()}
 
 	if has_session_user(request.session):
 		context['session'] = get_session_user(request.session)

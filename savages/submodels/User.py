@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from UserAchieved import *
+from Achievement import *
 
 class User(models.Model):
 	username = models.CharField(max_length=20)
@@ -17,5 +18,15 @@ class User(models.Model):
 			num_points += achievement.points
 		return num_points
 
-	def __str__(self):
-		return self.username
+
+	# FIXME: inefficient, but given the small scale this is not too problematic
+	@property
+	def calculateRank(self):
+		self_points = self.calculatePoints
+		rank = 1
+
+		for user in User.objects.all():
+			if user.username != self.username and user.calculatePoints > self_points:
+				rank += 1
+
+		return rank

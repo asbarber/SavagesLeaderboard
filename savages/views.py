@@ -8,3 +8,4 @@ from controllers.login import *
 from controllers.logout import *
 from controllers.user import *
 from controllers.user_account import *
+from controllers.create import *

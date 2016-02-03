@@ -5,7 +5,7 @@
 		"fields": {
 			"username": "asbarber",
 			"password": "coutpoop",
-			"name": "Aaron Barber"
+			"name": "Doesn't know how to wipe right"
 		}
 	},
 
@@ -15,7 +15,107 @@
 		"fields": {
 			"username": "kenbsell",
 			"password": "coutpoop",
-			"name": "Kenny Sell"
+			"name": "I'm sorry you feel that way"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 3,
+		"fields": {
+			"username": "sjacker",
+			"password": "coutpoop",
+			"name": "Chained up with my fuzzy handcuffs"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 4,
+		"fields": {
+			"username": "zmconley",
+			"password": "coutpoop",
+			"name": "Gambling addict"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 5,
+		"fields": {
+			"username": "sdtrahan",
+			"password": "coutpoop",
+			"name": "Kenny told my mom that I'm a douche"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 6,
+		"fields": {
+			"username": "jeremyhz",
+			"password": "coutpoop",
+			"name": "Lebron lebron lebron lebron lebron lebron lebron"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 7,
+		"fields": {
+			"username": "mjray",
+			"password": "coutpoop",
+			"name": "Don't let courtney happen again #2016"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 8,
+		"fields": {
+			"username": "zweglarz",
+			"password": "coutpoop",
+			"name": "Do that hand thing you do"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 9,
+		"fields": {
+			"username": "burtless",
+			"password": "coutpoop",
+			"name": "Forgot spikeball again"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 10,
+		"fields": {
+			"username": "seanlj",
+			"password": "coutpoop",
+			"name": "Fuck it, pluck it, put it in a buckit"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 11,
+		"fields": {
+			"username": "shanesms",
+			"password": "coutpoop",
+			"name": "Shinedown Shane"
+		}
+	},
+
+	{
+		"model": "savages.user",
+		"pk": 112,
+		"fields": {
+			"username": "randymue",
+			"password": "coutpoop",
+			"name": "You're hot but kinda a bitch, but that's not the case"
 		}
 	}	
 ]
