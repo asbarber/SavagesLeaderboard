@@ -1,0 +1,50 @@
+[
+	{
+		"model": "savages.achievement",
+		"pk": 1,
+		"fields": {
+			"points": 1,
+			"description": "Killed a bear"
+		}
+	},
+	{
+		"model": "savages.achievement",
+		"pk": 2,
+		"fields": {
+			"points": -10,
+			"description": "Throw up"
+		}
+	},
+	{
+		"model": "savages.achievement",
+		"pk": 3,
+		"fields": {
+			"points": 50,
+			"description": "Break Scottie's fly fishing gear"
+		}
+	},
+	{
+		"model": "savages.achievement",
+		"pk": 4,
+		"fields": {
+			"points": -10,
+			"description": "Caught sober"
+		}
+	},	
+	{
+		"model": "savages.achievement",
+		"pk": 5,
+		"fields": {
+			"points": 100,
+			"description": "Bring spikeball"
+		}
+	},	
+	{
+		"model": "savages.achievement",
+		"pk": 6,
+		"fields": {
+			"points": 25,
+			"description": "Win True American"
+		}
+	}
+]

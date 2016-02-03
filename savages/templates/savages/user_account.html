@@ -1,0 +1,35 @@
+{% extends "savages/base.html" %}
+{% block content %}
+
+<div>
+  <h2>Me</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    <p>
+      <label>Username</label>
+      <input type="text" name="username" value="{{user.username}}" readonly>
+    </p>
+
+    <p>
+      <label>Name</label>
+      <input type="text" name="name" value="{{user.name}}">
+    </p>
+
+    <p>
+      <label>Password</label>
+      <input type="password" name="password" value="" placeholder="">
+    </p>
+
+    <p>
+      <label>Confirm Password</label>
+      <input type="password" name="password2" value="" placeholder="">
+    </p>
+
+    <p class="submit">
+      <input type="submit" name="update" value="Update">
+    </p>
+  </form>
+</div>
+
+{% endblock content %}
