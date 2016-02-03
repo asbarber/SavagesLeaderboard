@@ -1,3 +1,6 @@
 #!/bin/bash
 
-pip install -r admin-reqs.txt
+# run server
+cd mysite
+python manage.py runserver
+cd ..
