@@ -1,0 +1,9 @@
+.user-account-block {
+    width: 50%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #ff656c;
+    margin: 0 auto;
+    margin-top: 50px;
+}

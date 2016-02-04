@@ -5,7 +5,6 @@ from ..models import *
 from api import *
 
 success = False
-fail = True
 def user_account_render(request, failed):
 	user = get_session_user(request.session)		
 	return render(request, 'savages/user_account.html', {
@@ -26,8 +25,10 @@ def user_account_post(request):
 	password2 = request.POST['password2']
 	
 	# valid name and password/confirm-password
-	if not validate_name(name) or not validate_password(password, password2):
-		return user_account_render(request, fail)
+	if not validate_name(name):
+		return user_account_render(request, "Invalid name")
+	if not validate_password(password, password2):
+		return user_account_render(request, "Invalid passwords")
 
 	update_user(user, name, password)
 	return user_account_render(request, success)

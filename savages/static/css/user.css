@@ -1,0 +1,33 @@
+.user-block {
+    width: 80%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #ff656c;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.user-block h1 {
+    text-align: left;
+    color: #000;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.user-block button {
+    border-radius: 15px;
+    border: none;
+    background: none;
+    margin-bottom: 5px;
+}
+
+.user-add button:hover {
+    background: #c5d5cb;
+}
+
+.user-remove button:hover {
+    background: #ff7b81;
+}

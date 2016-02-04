@@ -1,38 +1,44 @@
 {% extends "savages/base.html" %}
 {% block content %}
 
-<div>
-	<!-- Title -->
-	<h2>Create</h2>
 
-	<!-- Create -->
-	<h2>Create</h2>
-	<ol>
-		<form method="post">
+<div class="create-body">
+	<div class="create-block">
+		<!-- Create -->
+		<h1>Create</h1>
+
+		<form method="post" class="create-add">
 			{% csrf_token %}
-			<input type="text" name="points" value=0.0>
-			<input type="text" name="description" value="Description">
-			<input type="submit" name="submit" value="Add">
+
+			<label for="description">Description</label>
+			<input type="text" name="description" value="" placeholder="Conquer the world" class="username" />
+
+			<label for="points">Points</label>
+			<input type="text" name="points" value="" placeholder="100.0" class="username" />
+
+			<button type="submit" name="update">Add</button>
 			<input type="hidden" name="achievementId" value={{x.id}}>
 			<input type="hidden" name="actionType" value="ADD">
 		</form>
-	</ol>
 
-	<!-- Remove -->
-	<h2>Remove</h2>
-	<ol>
-		{% for x in achievements %}
-			<form method="post">
-				{% csrf_token %}
-				<li>
-					{{ x.points }} - {{ x.description }}
-					<input type="submit" name="submit" value="Remove">
-					<input type="hidden" name="achievementId" value={{x.id}}>
-					<input type="hidden" name="actionType" value="REMOVE">
-				</li>
-			</form>
-		{% endfor %}
-	</ol>  
+		<div class="create-remove">
+			<h1>Remove</h1>
+			<ul>
+				{% for x in achievements %}
+					<form method="post">
+						{% csrf_token %}
+						<li>
+							{{ x.points }}, {{ x.description }}
+							<button type="submit" name="submit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>												
+							<input type="hidden" name="achievementId" value={{x.id}}>
+							<input type="hidden" name="actionType" value="REMOVE">
+						</li>
+					</form>
+				{% endfor %}
+			</ul> 
+		</div>
+	</div>
 </div>
+
 
 {% endblock content %}

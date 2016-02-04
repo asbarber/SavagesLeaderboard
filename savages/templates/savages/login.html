@@ -1,28 +1,32 @@
 {% extends "savages/base.html" %}
 {% block content %}
 
-<div>
-  <h1>Login</h1>
-  <form method="post">
-    {% csrf_token %}
-    <p>
-      <label>Username</label>
-      <input type="text" name="username" value="" placeholder="">
-    </p>
 
-    <p>
-      <label>Password</label>
-      <input type="password" name="password" value="" placeholder="">
-    </p>
+<div class="login-body">
+    <form method="POST" id="loginForm">
+        {% csrf_token %}
 
-    <p class="submit">
-      <input type="submit" name="commit" value="Login">
-    </p>
+        <div class="login-block">
+            <h1>Login</h1>
+            
+            <!-- Authentication -->
+            <input type="text" name="username" class="username" value="" placeholder="Username" id="username"/>
+            <input type="password" name="password" class="password" value="" placeholder="Password" id="password"/>
 
-    {% if failed %}
-      <p>Login Failure</p>
-    {% endif %}
-  </form>
+            <!-- Actions -->
+            <button type="submit" form="loginForm" value="Login">Submit</button>
+            <a href="http://www.meatspin.com"><button type="button" id="signup">Sign Up</button></a>
+            <a href="http://www.meatspin.com">Forgot Password?</a>
+            
+            <!-- Error -->
+            {% if failed %}
+                <div class="alert alert-danger invalid-login" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{ failed }}
+                </div>
+            {% endif %}
+        </div>
+    </form>
 </div>
 
 {% endblock content %}

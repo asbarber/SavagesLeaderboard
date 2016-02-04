@@ -1,46 +1,60 @@
 {% extends "savages/base.html" %}
 {% block content %}
 
-<div>
-	<!-- Title -->
-	<h2>Achieve</h2>
+<div class="user-body">
+	<div class="user-block">
+		<!-- Statistics -->
+		<div class="statistics">
+			<h1>Statistics</h1>
+			<div>
+				<label>Rank:</label><span> {{ user.calculateRank }}</span>
+			</div>
+			<div>
+				<label>Points:</label><span> {{ user.calculatePoints }}</span>
+			</div>
+		</div>
 
-	<!-- Statistics -->
-	<h2>Statistics</h2>
-	<label>Points</label><p>{{ user.calculatePoints }}</p>
-	<label>Rank</label><p>{{ user.calculateRank }}</p>
-
-	<!-- Tasks accomplished -->
-	<h2>Achieved</h2>
-	<ol>
-		{% for x in achieved %}
-			<form method="post">
-				{% csrf_token %}
+		<!-- Tasks accomplished -->
+		<h1>Achieved</h1>
+		<ul>
+			{% for x in achieved %}
+				<form method="post" class="user-remove">
+					{% csrf_token %}
+					<li>
+						{{ x.points }}, {{ x.description }}
+						<button type="submit" name="submit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>						
+						<input type="hidden" name="achievementId" value={{x.id}}>
+						<input type="hidden" name="actionType" value="REMOVE">
+					</li>
+				</form>
+			{% empty %}
 				<li>
-					{{ x.points }} - {{ x.description }}
-					<input type="submit" name="submit" value="Remove">
-					<input type="hidden" name="achievementId" value={{x.id}}>
-					<input type="hidden" name="actionType" value="REMOVE">
-				</li>
-			</form>
-		{% endfor %}
-	</ol>
+					You have no achievements!
+				</li>				
+			{% endfor %}
+		</ul>
 
-	<!-- Tasks remaining -->
-	<h2>Unachieved</h2>
-	<ol>
-		{% for x in unachieved %}
-			<form method="post">
-				{% csrf_token %}
+		<!-- Tasks remaining -->
+		<h1>Unachieved</h1>
+		<ul>
+			{% for x in unachieved %}
+				<form method="post" class="user-add">
+					{% csrf_token %}
+					<li>
+						{{ x.points }}, {{ x.description }}
+                    	
+						<button type="submit" name="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+						<input type="hidden" name="achievementId" value={{x.id}}>
+						<input type="hidden" name="actionType" value="ADD">
+					</li>
+				</form>
+			{% empty %}
 				<li>
-					{{ x.points }} - {{ x.description }}
-					<input type="submit" name="submit" value="Request">
-					<input type="hidden" name="achievementId" value={{x.id}}>
-					<input type="hidden" name="actionType" value="ADD">
-				</li>
-			</form>
-		{% endfor %}
-	</ol>  
+					You have completed all achievements!
+				</li>								
+			{% endfor %}
+		</ul>  
+	</div>
 </div>
 
 {% endblock content %}

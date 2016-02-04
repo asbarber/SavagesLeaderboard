@@ -1,0 +1,24 @@
+input:focus:invalid {
+  outline: 1px solid red;
+  color: red;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+}
+
+a, a:hover {
+  color: inherit;
+}
+
+.center {
+  margin:0 auto;
+  max-width: 100%;
+}
+
+#header {
+  padding: 25px;
+}
+#main {
+  overflow-y: auto;
+}

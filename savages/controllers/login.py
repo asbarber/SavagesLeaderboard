@@ -14,7 +14,7 @@ def login_post(request):
 
 	# invalid login
 	if not user_exists(username, password):
-		return render(request, 'savages/login.html', {'failed': True})
+		return render(request, 'savages/login.html', {'failed': "Invalid username/password"})
 
 	set_session_user(request.session, username)
 	return HttpResponseRedirect('/savages/user')

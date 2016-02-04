@@ -1,16 +1,36 @@
 {% extends "savages/base.html" %}
 {% block content %}
 
-<h2>Home</h2>
 
-{% if user_list %}
-	<ol>
-		{% for user in user_list %}
-			<li>{{ user.name }}, {{ user.calculatePoints }}</li>
-		{% endfor %}
-	</ol>
-{% else %}
-	<p>No users available.</p>
-{% endif %}
+<div class="user-body">
+	<div class="user-block">
+
+		{% if session %}		
+			<!-- Statistics -->
+			<div class="statistics">
+				<h1>Statistics</h1>
+				<div>
+					<label>My Rank:</label><span> {{ session.calculateRank }}</span>
+				</div>
+				<div>
+					<label>My Points:</label><span> {{ session.calculatePoints }}</span>
+				</div>
+			</div>
+		{% endif %}
+
+		<h1>Leaderboards</h1>
+		{% if user_list %}
+			<ol>
+				{% for user in user_list %}
+					<li>{{ user.name }}, <b>{{ user.calculatePoints }} points</b></li>
+				{% endfor %}
+			</ol>
+		{% else %}
+			<p>No users available.</p>
+		{% endif %}
+
+	</div>
+</div>
+
 
 {% endblock content %}
