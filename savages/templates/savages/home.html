@@ -10,6 +10,9 @@
 			<div class="statistics">
 				<h1>Statistics</h1>
 				<div>
+					<label>My Name:</label><span> {{ session.name }} ({{ session.username }})</span>
+				</div>				
+				<div>
 					<label>My Rank:</label><span> {{ session.calculateRank }}</span>
 				</div>
 				<div>

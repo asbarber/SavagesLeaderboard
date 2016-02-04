@@ -7,10 +7,13 @@
 		<div class="statistics">
 			<h1>Statistics</h1>
 			<div>
-				<label>Rank:</label><span> {{ user.calculateRank }}</span>
+				<label>My Name:</label><span> {{ user.name }} ({{ user.username }})</span>
+			</div>							
+			<div>
+				<label>My Rank:</label><span> {{ user.calculateRank }}</span>
 			</div>
 			<div>
-				<label>Points:</label><span> {{ user.calculatePoints }}</span>
+				<label>My Points:</label><span> {{ user.calculatePoints }}</span>
 			</div>
 		</div>
 

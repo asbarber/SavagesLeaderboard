@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# run server
+# run server (locally)
 python manage.py runserver
